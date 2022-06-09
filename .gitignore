@@ -17,12 +17,14 @@ media/*
 logs/*
 # Api files
 settings/api.json
-
 # managed
 **.data.json
 **.node-persist**
 # end managed
-
 # temp
 test*.js
 tmp
+
+# managed by open-wa
+**_IGNORE_**
+# end managed by open-wa

@@ -127,7 +127,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
         },
         success: {
             join: '✅ Berhasil join group via link!',
-            sticker: 'Here\'s your sticker 🎉',
+            sticker: 'Aqui esta seu sticker senhor 🎉',
             greeting: `Hai guys 👋 perkenalkan saya SeroBot 🤖` +
                 `Untuk melihat perintah atau menu yang tersedia pada bot, kirim *${prefix}menu*. Tapi sebelumnya pahami dulu *${prefix}tnc*`
         },
@@ -160,9 +160,9 @@ const HandleMsg = async (message, browser, client = new Client()) => {
         const groupAdmins = isGroupMsg ? await client.getGroupAdmins(groupId) : ''
         const pengirim = sender.id
         const isBotGroupAdmin = groupAdmins.includes(botNumber) || false
-        const stickerMetadata = { pack: 'Created with', author: 'SeroBot', keepScale: true }
-        const stickerMetadataCircle = { pack: 'Created with', author: 'SeroBot', circle: true }
-        const stickerMetadataCrop = { pack: 'Created with', author: 'SeroBot', cropPosition: 'center' }
+        const stickerMetadata = { pack: 'Created with', author: 'CherS', keepScale: true }
+        const stickerMetadataCircle = { pack: 'Created with', author: 'CherS', circle: true }
+        const stickerMetadataCrop = { pack: 'Created with', author: 'CherS', cropPosition: 'center' }
         // Bot Prefix Aliases
         const regex = /^[\\/!$^%&+.,-](?=\w+)/
         let chats = '' // whole chats body
@@ -443,6 +443,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
             else return null
         }
         // Notify repetitive msg
+        /*
         if (chats != "" && isFiltered(chatId + croppedChats) && croppedChats != undefined) {
             let _whenGroup = ''
             if (isGroupMsg) _whenGroup = `in ${color(name || formattedTitle)}`
@@ -459,6 +460,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
             addFilter(chatId + 'isCooldown', 60000)
             return reply(`SPAM detected!\nPesan selanjutnya akan diproses setelah 1 menit`)
         }
+        */
 
         // Avoid repetitive sender spam
         if (isFiltered(pengirim) && !isCmd && chats != "") {
@@ -923,7 +925,7 @@ const HandleMsg = async (message, browser, client = new Client()) => {
                     if (args.length === 0) return reply(`Screenshot website atau search Google. ${prefix}ssweb <url> atau ${prefix}gs <query>`)
                     sendText(resMsg.wait)
                     let urlzz = ''
-                    if (!isUrl(arg)) urlzz = `https://www.google.com/search?q=${encodeURIComponent(arg)}`
+                    if (!isUrl(arg)) urlzz = `https://www.images.google.com/search?q=${encodeURIComponent(arg)}`
                     else urlzz = arg
                     const path = './media/ssweb.png'
                     scraper.ssweb(browser, path, urlzz).then(async res => {

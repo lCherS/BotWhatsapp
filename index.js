@@ -40,7 +40,7 @@ queue.on('next', () => {
 const start = async (client = new Client()) => {
     try {
         console.log(color(figlet.textSync('----------------', { horizontalLayout: 'default' })))
-        console.log(color(figlet.textSync('  SeroBot', { font: 'Ghost', horizontalLayout: 'default' })))
+        console.log(color(figlet.textSync('  CherS', { font: 'Ghost', horizontalLayout: 'default' })))
         console.log(color(figlet.textSync('----------------', { horizontalLayout: 'default' })))
         console.log(color('[DEV]'), color('Danang', 'yellow'))
         console.log(color('[~>>]'), color('BOT Started!', 'green'))
@@ -153,12 +153,14 @@ const start = async (client = new Client()) => {
                     }, 3000)
                 } else {
                     client.simulateTyping(chat.groupMetadata.id, true).then(async () => {
-                        client.sendText(chat.groupMetadata.id, `Hai guys 👋 perkenalkan saya SeroBot. Untuk melihat perintah atau menu yang tersedia pada bot, kirim *${prefix}menu*. Tapi sebelumnya pahami dulu *${prefix}tnc*`)
+                        client.sendText(chat.groupMetadata.id, `Opa meus queridos 👋 para ver os comandos do bot, digite *${prefix}menu*. \n
+                        Avisamos que voce concorda com os termos *${prefix}termo*`)
+                        //client.sendText(chat.groupMetadata.id, `Hai guys 👋 perkenalkan saya SeroBot. Untuk melihat perintah atau menu yang tersedia pada bot, kirim *${prefix}menu*. Tapi sebelumnya pahami dulu *${prefix}tnc*`)
                     })
                 }
             })
         })
-
+/*  -- Bloqueia contato ao ligar
         client.onIncomingCall(async call => {
             // ketika seseorang menelpon nomor bot
             if (!call.isGroup || !call.participants.length > 1) {
@@ -169,6 +171,7 @@ const start = async (client = new Client()) => {
                 }, 3000)
             }
         })
+        */
 
         // Mempertahankan sesi agar tetap nyala
         client.onStateChanged((state) => {
@@ -196,12 +199,12 @@ const start = async (client = new Client()) => {
                     pushname,
                     chat.contact.name || chat.formattedTitle,
                     chat.groupMetadata.participants.length).catch(err => console.log(color('[ERR>]', 'red'), err))
-                await client.sendImage(event.chat, welcomeData, 'welcome.png', `Halo semua!👋✨ Anggota kita nambah satu nih\n-> @${event.who.replace(/@c\.us/g, '')}`)
+                await client.sendImage(event.chat, welcomeData, 'welcome.png', `Boas vindas ao novo membro!👋✨ \n-> @${event.who.replace(/@c\.us/g, '')}`)
 
             }
             // kondisi ketika seseorang dikick/keluar dari group
             if (event.action === 'remove' && event.who !== host && isWelcome) {
-                await client.sendText(event.chat, `⚙ Eh ada yang keluar ya? Dadahhh ${pushname} 👋✨`)
+                await client.sendText(event.chat, `⚙ ta incomodado vai embora, adeus ${pushname} 👋✨`)
             }
             // Saat host keluar
             if (event.action === 'remove' && event.who == host) {
@@ -246,9 +249,7 @@ const start = async (client = new Client()) => {
                 if (message.author != host && isAntiDelete) {
                     await client.sendTextWithMentions(message.from,
                         `‼️〘 ANTI DELETE 〙‼️\n` +
-                        `${q3}Who     :${q3} @${message.author.replace('@c.us', '')}\n` +
-                        `${q3}When    :${q3} ${moment(message.t * 1000).format('DD MMM HH:mm:ss')}\n` +
-                        `${q3}Type    :${q3} ${message.type.replace(/^\w/, (c) => c.toUpperCase())}` +
+                        `${q3}quem     :${q3} @${message.author.replace('@c.us', '')}\n` +
                         `${message.type == 'chat' ? `\n${q3}Content :${q3}\n\n${message.body}` : ``}`
                     )
                     if (['image', 'video', 'ptt', 'audio', 'document'].includes(message.type)) {
@@ -257,7 +258,7 @@ const start = async (client = new Client()) => {
                     }
                     if (message.type == 'sticker') {
                         const mediaData = await decryptMedia(message)
-                        await client.sendImageAsSticker(message.from, mediaData, { pack: 'Anti delete by', author: 'SeroBot', keepScale: true })
+                        await client.sendImageAsSticker(message.from, mediaData, { pack: 'Anti delete by', author: 'CherS', keepScale: true })
                     }
                 }
             } catch (err) {
