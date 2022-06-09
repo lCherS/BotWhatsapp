@@ -2772,10 +2772,10 @@ fraction.js@^4.1.1:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-4.2.0.tgz#448e5109a313a3527f5a3ab2119ec4cf0e0e2950"
   integrity sha512-MhLuK+2gUcnZe8ZHlaaINnQLl0xRIGRfcGk2yl8xoQAfHrSsL3rYu6FCmBdkdbhc9EPlwyGHewaRsvwRMJtAlA==
 
-free-translate@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/free-translate/-/free-translate-0.4.0.tgz#2e232aad09e2972f5564fbb6966089812e709675"
-  integrity sha512-hfuUVtDpg8loHHi7AmGwDbqwgNylWVSeZBqDfsIupsn79khj1L1s8b1/F8p28QGNEW0XX2wmIy1XwBBQQT296Q==
+free-translate@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/free-translate/-/free-translate-0.6.1.tgz#54cac46abf03770040c2e8b4b04ead5e7d02d68c"
+  integrity sha512-4zPXxZj1wZM/pSjkTX8UGaf8827DGNmT4mvGo8KKllim3lnFqXpqYC+tR1JwjfgPWLiS003up8oJbDK6+11FSw==
   dependencies:
     nightmare "^3.0.2"
 
